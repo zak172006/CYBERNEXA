@@ -5,8 +5,9 @@
 // CYBERNEXA AUTHENTICATION
 // ======================================
 
-document.addEventListener("DOMContentLoaded", () => {
+const API_URL = "http://localhost:5000/api";
 
+document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
     const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
@@ -15,29 +16,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // SHOW / HIDE PASSWORD
     if (togglePassword && passwordInput) {
-
         togglePassword.addEventListener("click", () => {
-
             const isHidden = passwordInput.type === "password";
-
             passwordInput.type = isHidden ? "text" : "password";
-
             togglePassword.textContent = isHidden ? "Hide" : "Show";
 
             togglePassword.setAttribute(
                 "aria-label",
                 isHidden ? "Hide password" : "Show password"
             );
-
         });
-
     }
 
-    // LOGIN FORM VALIDATION
+    // LOGIN
     if (loginForm) {
-
-        loginForm.addEventListener("submit", (event) => {
-
+        loginForm.addEventListener("submit", async (event) => {
             event.preventDefault();
 
             const email = emailInput.value.trim();
@@ -62,15 +55,54 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            loginMessage.style.color = "#00e59b";
+            const submitButton = loginForm.querySelector(
+                'button[type="submit"], input[type="submit"]'
+            );
 
-            loginMessage.textContent =
-                "Input validation successful. Backend authentication is not connected yet.";
+            if (submitButton) submitButton.disabled = true;
 
-            console.log("CYBERNEXA login form validated.");
+            try {
+                loginMessage.textContent = "Signing in...";
 
+                const response = await fetch(`${API_URL}/auth/login`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || !data.success) {
+                    throw new Error(data.message || "Login failed.");
+                }
+
+                if (!data.token) {
+                    throw new Error("Authentication token was not received.");
+                }
+
+                // Temporary session storage for development
+                sessionStorage.setItem("cybernexa_token", data.token);
+
+                if (data.user) {
+                    sessionStorage.setItem(
+                        "cybernexa_user",
+                        JSON.stringify(data.user)
+                    );
+                }
+
+                loginMessage.style.color = "#00e59b";
+                loginMessage.textContent = "Login successful!";
+
+                window.location.href = "dashboard.html";
+
+            } catch (error) {
+                loginMessage.style.color = "#ff6b6b";
+                loginMessage.textContent = error.message;
+            } finally {
+                if (submitButton) submitButton.disabled = false;
+            }
         });
-
     }
-
 });
