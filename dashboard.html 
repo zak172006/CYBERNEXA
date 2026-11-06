@@ -31,7 +31,6 @@
         <div class="sidebar-label">MAIN MENU</div>
 
         <nav class="sidebar-nav">
-
             <a href="#overview" class="side-link active">
                 <span>◈</span> Overview
             </a>
@@ -51,7 +50,6 @@
             <a href="#activity" class="side-link">
                 <span>▤</span> Activity Log
             </a>
-
         </nav>
 
         <div class="sidebar-label">SYSTEM</div>
@@ -67,14 +65,16 @@
         </nav>
 
         <div class="sidebar-bottom">
+
             <div class="sidebar-security">
                 <span class="status-dot"></span>
                 Security Engine Active
             </div>
 
-            <a href="index.html" class="logout-link">
-                ↪ Return to Website
+            <a href="login.html" class="logout-link" id="logoutButton">
+                ↪ Logout
             </a>
+
         </div>
 
     </aside>
@@ -84,7 +84,7 @@
 
         <header class="dashboard-header">
 
-            <button id="sidebarToggle" class="sidebar-toggle">
+            <button id="sidebarToggle" class="sidebar-toggle" type="button">
                 ☰
             </button>
 
@@ -94,10 +94,11 @@
             </div>
 
             <div class="header-user">
-                <div class="user-avatar">N</div>
+                <div class="user-avatar" id="userAvatar">U</div>
+
                 <div>
-                    <strong>Security Admin</strong>
-                    <small>Administrator</small>
+                    <strong id="userName">Loading...</strong>
+                    <small id="userRole">User</small>
                 </div>
             </div>
 
@@ -119,7 +120,6 @@
                 </div>
             </div>
 
-            <!-- STATISTICS -->
             <div class="dashboard-stats">
 
                 <article class="stat-card">
@@ -162,6 +162,7 @@
                     <span class="section-tag">REAL-TIME VISIBILITY</span>
                     <h2>System Monitoring</h2>
                 </div>
+
                 <span class="live-label">● DEMO VIEW</span>
             </div>
 
@@ -200,7 +201,9 @@
                         </div>
                     </div>
 
-                    <p class="demo-note">Illustrative values — not live device telemetry.</p>
+                    <p class="demo-note">
+                        Illustrative values — not live device telemetry.
+                    </p>
                 </article>
 
                 <article class="dashboard-panel security-panel">
@@ -229,6 +232,7 @@
             </div>
 
             <div class="dashboard-panel">
+
                 <div class="threat-item">
                     <span class="threat-indicator warning"></span>
                     <div>
@@ -255,6 +259,7 @@
                     </div>
                     <span class="threat-level medium">MEDIUM</span>
                 </div>
+
             </div>
 
         </section>
@@ -270,18 +275,22 @@
             </div>
 
             <div class="dashboard-panel scanner-panel">
+
                 <div>
                     <h3>Analyze Your Authorized Assets</h3>
-                    <p>Prepare to check your own systems for potential security weaknesses.</p>
+                    <p>
+                        Prepare to check your own systems for potential security weaknesses.
+                    </p>
                 </div>
 
-                <button id="scanButton" class="primary-btn">
+                <button id="scanButton" class="primary-btn" type="button">
                     Start Demo Scan ↗
                 </button>
 
                 <p id="scanMessage" class="scan-message">
                     Scanner is not connected to a scanning engine.
                 </p>
+
             </div>
 
         </section>
@@ -328,6 +337,7 @@
 
         <!-- REPORTS -->
         <section class="dashboard-section" id="reports">
+
             <div class="section-title">
                 <div>
                     <span class="section-tag">SECURITY DOCUMENTATION</span>
@@ -336,12 +346,16 @@
             </div>
 
             <div class="dashboard-panel">
-                <p>Security reports will appear here when reporting is connected to the backend.</p>
+                <p>
+                    Security reports will appear here when reporting is connected to the backend.
+                </p>
             </div>
+
         </section>
 
         <!-- SETTINGS -->
         <section class="dashboard-section" id="settings">
+
             <div class="section-title">
                 <div>
                     <span class="section-tag">CONFIGURATION</span>
@@ -350,8 +364,11 @@
             </div>
 
             <div class="dashboard-panel">
-                <p>Platform configuration will be available in a future release.</p>
+                <p>
+                    Platform configuration will be available in a future release.
+                </p>
             </div>
+
         </section>
 
         <footer class="dashboard-footer">
