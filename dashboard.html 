@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b16">
+
+    <title>Dashboard | CYBERNEXA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body class="dashboard-page">
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">N</span>
+            CYBER<span>NEXA</span>
+        </a>
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+        <nav class="sidebar-nav">
+
+            <a href="#overview" class="side-link active">
+                <span>◈</span> Overview
+            </a>
+
+            <a href="#threats" class="side-link">
+                <span>⌘</span> Threat Intelligence
+            </a>
+
+            <a href="#scanner" class="side-link">
+                <span>⌕</span> Vulnerability Scanner
+            </a>
+
+            <a href="#monitoring" class="side-link">
+                <span>◉</span> Monitoring
+            </a>
+
+            <a href="#activity" class="side-link">
+                <span>▤</span> Activity Log
+            </a>
+
+        </nav>
+
+        <div class="sidebar-label">SYSTEM</div>
+
+        <nav class="sidebar-nav">
+            <a href="#reports" class="side-link">
+                <span>▧</span> Reports
+            </a>
+
+            <a href="#settings" class="side-link">
+                <span>⚙</span> Settings
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-security">
+                <span class="status-dot"></span>
+                Security Engine Active
+            </div>
+
+            <a href="index.html" class="logout-link">
+                ↪ Return to Website
+            </a>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <button id="sidebarToggle" class="sidebar-toggle">
+                ☰
+            </button>
+
+            <div>
+                <span class="section-tag">SECURITY OPERATIONS CENTER</span>
+                <h1>Dashboard Overview</h1>
+            </div>
+
+            <div class="header-user">
+                <div class="user-avatar">N</div>
+                <div>
+                    <strong>Security Admin</strong>
+                    <small>Administrator</small>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- OVERVIEW -->
+        <section id="overview">
+
+            <div class="welcome-banner">
+                <div>
+                    <span class="section-tag">SYSTEM OVERVIEW</span>
+                    <h2>Welcome to CYBERNEXA.</h2>
+                    <p>Your security operations at a glance.</p>
+                </div>
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    SYSTEM ONLINE
+                </div>
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="dashboard-stats">
+
+                <article class="stat-card">
+                    <span class="stat-icon">◈</span>
+                    <p>Total Threats</p>
+                    <h3>1,284</h3>
+                    <small>Demo statistics</small>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">⬡</span>
+                    <p>Protected Devices</p>
+                    <h3>248</h3>
+                    <small>Demo statistics</small>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">⌘</span>
+                    <p>Blocked Events</p>
+                    <h3>1,092</h3>
+                    <small>Demo statistics</small>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">◉</span>
+                    <p>Security Score</p>
+                    <h3>94%</h3>
+                    <small>Demo statistics</small>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- MONITORING -->
+        <section class="dashboard-section" id="monitoring">
+
+            <div class="section-title">
+                <div>
+                    <span class="section-tag">REAL-TIME VISIBILITY</span>
+                    <h2>System Monitoring</h2>
+                </div>
+                <span class="live-label">● DEMO VIEW</span>
+            </div>
+
+            <div class="monitoring-grid">
+
+                <article class="dashboard-panel monitoring-panel">
+                    <h3>System Health</h3>
+
+                    <div class="health-item">
+                        <div>
+                            <span>CPU Usage</span>
+                            <strong>42%</strong>
+                        </div>
+                        <div class="progress">
+                            <span style="width:42%"></span>
+                        </div>
+                    </div>
+
+                    <div class="health-item">
+                        <div>
+                            <span>Memory Usage</span>
+                            <strong>68%</strong>
+                        </div>
+                        <div class="progress">
+                            <span style="width:68%"></span>
+                        </div>
+                    </div>
+
+                    <div class="health-item">
+                        <div>
+                            <span>Network Usage</span>
+                            <strong>31%</strong>
+                        </div>
+                        <div class="progress">
+                            <span style="width:31%"></span>
+                        </div>
+                    </div>
+
+                    <p class="demo-note">Illustrative values — not live device telemetry.</p>
+                </article>
+
+                <article class="dashboard-panel security-panel">
+                    <h3>Security Status</h3>
+
+                    <div class="security-score">
+                        <span>94%</span>
+                        <small>DEMO SCORE</small>
+                    </div>
+
+                    <p>Illustrative security overview</p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- THREATS -->
+        <section class="dashboard-section" id="threats">
+
+            <div class="section-title">
+                <div>
+                    <span class="section-tag">THREAT INTELLIGENCE</span>
+                    <h2>Threat Overview</h2>
+                </div>
+            </div>
+
+            <div class="dashboard-panel">
+                <div class="threat-item">
+                    <span class="threat-indicator warning"></span>
+                    <div>
+                        <strong>Suspicious Login Activity</strong>
+                        <small>Sample security event</small>
+                    </div>
+                    <span class="threat-level medium">MEDIUM</span>
+                </div>
+
+                <div class="threat-item">
+                    <span class="threat-indicator safe"></span>
+                    <div>
+                        <strong>Firewall Status</strong>
+                        <small>Sample system status</small>
+                    </div>
+                    <span class="threat-level low">NORMAL</span>
+                </div>
+
+                <div class="threat-item">
+                    <span class="threat-indicator warning"></span>
+                    <div>
+                        <strong>Unusual Network Traffic</strong>
+                        <small>Sample security event</small>
+                    </div>
+                    <span class="threat-level medium">MEDIUM</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SCANNER -->
+        <section class="dashboard-section" id="scanner">
+
+            <div class="section-title">
+                <div>
+                    <span class="section-tag">SECURITY ANALYSIS</span>
+                    <h2>Vulnerability Scanner</h2>
+                </div>
+            </div>
+
+            <div class="dashboard-panel scanner-panel">
+                <div>
+                    <h3>Analyze Your Authorized Assets</h3>
+                    <p>Prepare to check your own systems for potential security weaknesses.</p>
+                </div>
+
+                <button id="scanButton" class="primary-btn">
+                    Start Demo Scan ↗
+                </button>
+
+                <p id="scanMessage" class="scan-message">
+                    Scanner is not connected to a scanning engine.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ACTIVITY -->
+        <section class="dashboard-section" id="activity">
+
+            <div class="section-title">
+                <div>
+                    <span class="section-tag">SYSTEM HISTORY</span>
+                    <h2>Recent Activity</h2>
+                </div>
+            </div>
+
+            <div class="dashboard-panel activity-list">
+
+                <div class="activity-item">
+                    <span class="activity-dot"></span>
+                    <div>
+                        <strong>Dashboard initialized</strong>
+                        <small>Demo activity</small>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <span class="activity-dot"></span>
+                    <div>
+                        <strong>Security interface loaded</strong>
+                        <small>Demo activity</small>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <span class="activity-dot"></span>
+                    <div>
+                        <strong>Monitoring interface ready</strong>
+                        <small>Demo activity</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- REPORTS -->
+        <section class="dashboard-section" id="reports">
+            <div class="section-title">
+                <div>
+                    <span class="section-tag">SECURITY DOCUMENTATION</span>
+                    <h2>Reports</h2>
+                </div>
+            </div>
+
+            <div class="dashboard-panel">
+                <p>Security reports will appear here when reporting is connected to the backend.</p>
+            </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="dashboard-section" id="settings">
+            <div class="section-title">
+                <div>
+                    <span class="section-tag">CONFIGURATION</span>
+                    <h2>Settings</h2>
+                </div>
+            </div>
+
+            <div class="dashboard-panel">
+                <p>Platform configuration will be available in a future release.</p>
+            </div>
+        </section>
+
+        <footer class="dashboard-footer">
+            CYBERNEXA SECURITY PLATFORM © 2026
+            <span>DEMO ENVIRONMENT</span>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>
