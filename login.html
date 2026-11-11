@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b16">
+    <title>Sign In | CYBERNEXA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+
+            <div class="auth-head">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">N</span>
+                    CYBER<span>NEXA</span>
+                </a>
+                <h1>Welcome back</h1>
+                <p>Sign in to access your security dashboard.</p>
+            </div>
+
+            <div class="form-error" id="formError"></div>
+            <div class="form-success" id="formSuccess"></div>
+
+            <form id="loginForm" novalidate>
+                <div class="field">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+                </div>
+
+                <div class="field-row">
+                    <span></span>
+                    <a href="#" class="forgot-link" id="forgotLink">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="auth-submit" id="submitBtn">Sign In ↗</button>
+            </form>
+
+            <div class="auth-divider">OR</div>
+
+            <p class="auth-switch">
+                Don't have an account? <a href="register.html">Create one</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="supabase-client.js"></script>
+    <script>
+        const form = document.getElementById('loginForm');
+        const errorBox = document.getElementById('formError');
+        const successBox = document.getElementById('formSuccess');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Already logged in? go straight to dashboard.
+        getSession().then(session => {
+            if (session) window.location.href = 'dashboard.html';
+        });
+
+        // If redirected here after registering
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('registered') === '1') {
+            successBox.textContent = 'Account created. You can sign in now.';
+            successBox.classList.add('show');
+        }
+        if (params.get('confirm') === '1') {
+            successBox.textContent = 'Account created. Check your email to confirm it, then sign in.';
+            successBox.classList.add('show');
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorBox.classList.remove('show');
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                errorBox.textContent = 'Please fill in both fields.';
+                errorBox.classList.add('show');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Signing in...';
+
+            const result = await loginUser({ email, password });
+
+            if (!result.ok) {
+                errorBox.textContent = result.error;
+                errorBox.classList.add('show');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Sign In ↗';
+                return;
+            }
+
+            window.location.href = 'dashboard.html';
+        });
+
+        document.getElementById('forgotLink').addEventListener('click', async (e) => {
+            e.preventDefault();
+            errorBox.classList.remove('show');
+            successBox.classList.remove('show');
+            const email = document.getElementById('email').value.trim();
+            if (!email) {
+                errorBox.textContent = 'Enter your email above first, then click "Forgot password?".';
+                errorBox.classList.add('show');
+                return;
+            }
+            const result = await sendPasswordReset(email);
+            if (!result.ok) {
+                errorBox.textContent = result.error;
+                errorBox.classList.add('show');
+                return;
+            }
+            successBox.textContent = 'If an account exists for that email, a reset link is on its way.';
+            successBox.classList.add('show');
+        });
+    </script>
+</body>
+</html>

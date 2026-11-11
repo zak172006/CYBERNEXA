@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b16">
+    <title>Dashboard | CYBERNEXA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <div class="dash-shell">
+
+        <aside class="sidebar">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">N</span>
+                CYBER<span>NEXA</span>
+            </a>
+
+            <nav class="side-nav">
+                <a href="dashboard.html" class="active"><span class="icon">◉</span><span class="label">Overview</span></a>
+                <a href="scanner.html"><span class="icon">⌕</span><span class="label">URL Scanner</span></a>
+                <a href="#" aria-disabled="true" title="Coming soon" style="opacity:.45;pointer-events:none;"><span class="icon">⌘</span><span class="label">Threat Intelligence</span></a>
+                <a href="#" aria-disabled="true" title="Coming soon" style="opacity:.45;pointer-events:none;"><span class="icon">⬡</span><span class="label">AI Analysis</span></a>
+                <a href="#" aria-disabled="true" title="Coming soon" style="opacity:.45;pointer-events:none;"><span class="icon">⚙</span><span class="label">Settings</span></a>
+            </nav>
+
+            <div class="side-user">
+                <div class="side-avatar" id="sideAvatar">?</div>
+                <div class="side-user-info">
+                    <strong id="sideName">—</strong>
+                    <small id="sideEmail">—</small>
+                </div>
+                <button class="logout-btn" id="logoutBtn" title="Sign out">⎋</button>
+            </div>
+        </aside>
+
+        <main class="dash-main">
+
+            <div class="dash-topbar">
+                <div>
+                    <h1>Welcome back, <span id="welcomeName">—</span> 👋</h1>
+                    <p>Sample data for demonstration — live monitoring isn't connected yet.</p>
+                </div>
+                <div class="dash-date" id="dashDate"></div>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon" style="background:rgba(61,214,198,0.1); color:var(--accent);">◉</div>
+                        <span class="stat-trend up">+2.1%</span>
+                    </div>
+                    <h3>99.9%</h3>
+                    <p>Threat detection rate</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon" style="background:rgba(91,127,255,0.1); color:var(--accent-2);">⌕</div>
+                        <span class="stat-trend down">-4</span>
+                    </div>
+                    <h3>7</h3>
+                    <p>Open vulnerabilities</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon" style="background:rgba(255,182,72,0.12); color:var(--warn);">⌘</div>
+                        <span class="stat-trend up">+3</span>
+                    </div>
+                    <h3>12</h3>
+                    <p>Active alerts this week</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon" style="background:rgba(61,214,198,0.1); color:var(--accent);">⬡</div>
+                        <span class="stat-trend up">24/7</span>
+                    </div>
+                    <h3>Active</h3>
+                    <p>AI monitoring status</p>
+                </div>
+            </div>
+
+            <div class="dash-grid">
+                <div class="panel">
+                    <div class="panel-title">
+                        <h3>Recent Security Events</h3>
+                        <span>Last 24 hours</span>
+                    </div>
+                    <div class="event-list">
+                        <div class="event-row">
+                            <span class="event-dot ok"></span>
+                            <div class="event-text">
+                                <strong>Routine scan completed</strong>
+                                <small>All authorized endpoints — no issues found</small>
+                            </div>
+                            <span class="event-time">2m ago</span>
+                        </div>
+                        <div class="event-row">
+                            <span class="event-dot warn"></span>
+                            <div class="event-text">
+                                <strong>Unusual login pattern flagged</strong>
+                                <small>Review recommended for user session #4471</small>
+                            </div>
+                            <span class="event-time">41m ago</span>
+                        </div>
+                        <div class="event-row">
+                            <span class="event-dot ok"></span>
+                            <div class="event-text">
+                                <strong>Firewall rules updated</strong>
+                                <small>Applied latest threat intelligence feed</small>
+                            </div>
+                            <span class="event-time">3h ago</span>
+                        </div>
+                        <div class="event-row">
+                            <span class="event-dot danger"></span>
+                            <div class="event-text">
+                                <strong>Outdated dependency detected</strong>
+                                <small>A monitored package needs a security update</small>
+                            </div>
+                            <span class="event-time">6h ago</span>
+                        </div>
+                        <div class="event-row">
+                            <span class="event-dot ok"></span>
+                            <div class="event-text">
+                                <strong>Backup verification passed</strong>
+                                <small>Encrypted snapshot stored successfully</small>
+                            </div>
+                            <span class="event-time">11h ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">
+                        <h3>System Health</h3>
+                        <span class="live-label">● LIVE</span>
+                    </div>
+                    <div class="mini-list">
+                        <div class="mini-row-wrap">
+                            <div class="mini-row"><span>Network defense</span><span>96%</span></div>
+                            <div class="mini-bar"><div style="width:96%"></div></div>
+                        </div>
+                        <div class="mini-row-wrap">
+                            <div class="mini-row"><span>Endpoint protection</span><span>88%</span></div>
+                            <div class="mini-bar"><div style="width:88%"></div></div>
+                        </div>
+                        <div class="mini-row-wrap">
+                            <div class="mini-row"><span>Data encryption</span><span>100%</span></div>
+                            <div class="mini-bar"><div style="width:100%"></div></div>
+                        </div>
+                        <div class="mini-row-wrap">
+                            <div class="mini-row"><span>Patch compliance</span><span>74%</span></div>
+                            <div class="mini-bar"><div style="width:74%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="supabase-client.js"></script>
+    <script>
+        (async () => {
+            const session = await requireAuth();
+            if (session) {
+                const user = session.user;
+                const name = user.user_metadata?.full_name || user.email;
+                const initial = name.trim().charAt(0).toUpperCase();
+                document.getElementById('sideAvatar').textContent = initial;
+                document.getElementById('sideName').textContent = name;
+                document.getElementById('sideEmail').textContent = user.email;
+                document.getElementById('welcomeName').textContent = name.split(' ')[0];
+
+                document.getElementById('dashDate').textContent = new Date().toLocaleDateString(undefined, {
+                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+                });
+            }
+        })();
+
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            logout();
+        });
+    </script>
+</body>
+</html>
